@@ -23,6 +23,7 @@ pipeline {
 
     stage('Remove Container') {
       steps {
+        sh 'docker container stop webdev'
         sh 'docker container rm webdev'
       }
     }
