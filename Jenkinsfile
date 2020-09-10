@@ -8,14 +8,16 @@ pipeline {
     }
 
     stage('Build') {
-      agent {
-        dockerfile {
-          filename 'Dockerfile'
-        }
-
-      }
       steps {
         echo 'Build'
+        sh 'docker build -t "webdev:Dockerfile" .'
+      }
+    }
+
+    stage('Run') {
+      steps {
+        sh 'docker run -d -p 80:80 --name webdev:Dockerfile'
+        input(message: 'Finished using the web site: (Click proceed to continue)', ok: 'Proceed')
       }
     }
 
