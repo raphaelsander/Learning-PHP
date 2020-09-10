@@ -16,7 +16,7 @@ pipeline {
 
     stage('Run') {
       steps {
-        sh 'docker run -d -p 80:80 --name webdev:Dockerfile'
+        sh 'docker run -d -p 80:80 --name webdev webdev:Dockerfile'
         input(message: 'Finished using the web site: (Click proceed to continue)', ok: 'Proceed')
       }
     }
