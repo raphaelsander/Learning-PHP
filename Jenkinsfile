@@ -8,25 +8,14 @@ pipeline {
     }
 
     stage('Build') {
-      parallel {
-        stage('Build') {
-          agent {
-            dockerfile {
-              filename 'Dockerfile'
-            }
-
-          }
-          steps {
-            echo 'Build'
-          }
+      agent {
+        dockerfile {
+          filename 'Dockerfile'
         }
 
-        stage('View Dockerfile') {
-          steps {
-            sh 'cat Dockerfile'
-          }
-        }
-
+      }
+      steps {
+        echo 'Build'
       }
     }
 
