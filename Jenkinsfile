@@ -21,5 +21,11 @@ pipeline {
       }
     }
 
+    stage('Remove Container') {
+      steps {
+        sh 'docker container rm webdev'
+      }
+    }
+
   }
 }
