@@ -19,9 +19,6 @@ switch ($pagina) {
         include 'home.php';
         break;
 }
-
-/* Função vulnerável */
-include($pagina);
  
 /* Carrega o footer.php */
 include 'footer.php';
